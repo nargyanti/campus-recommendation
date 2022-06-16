@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CampusController;
+use App\Http\Controllers\UtbkScoreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +22,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/campus', [CampusController::class, 'index'])->name('campus.index');
+Route::resource('/utbk', UtbkScoreController::class);

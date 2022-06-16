@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1>UTBK Score</h1>    
+    <h1>Campus Ranking</h1>    
     <table class="table">
         <thead>
           <tr>            
@@ -18,14 +18,7 @@
         </thead>
         <tbody>
           <tr>
-            <td>{{ $utbk_score->biologi }}</td>
-            <td>{{ $utbk_score->fisika }}</td>
-            <td>{{ $utbk_score->kimia }}</td>
-            <td>{{ $utbk_score->kmb }}</td>
-            <td>{{ $utbk_score->kpu }}</td>
-            <td>{{ $utbk_score->kua }}</td>
-            <td>{{ $utbk_score->mat }}</td>
-            <td>{{ $utbk_score->ppu }}</td>
+            <td>$</td>
           </tr>          
         </tbody>
       </table>
