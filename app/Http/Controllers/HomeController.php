@@ -2,30 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Criteria;
+use App\Models\Recommendation;
 use App\Models\UtbkScore;
+use App\Models\Campus;
 use Auth;
+use DB;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function indexUser()
     {
-        $this->middleware('auth');
+        $user = Auth::user();
+        $recommendations = Recommendation::get_campus_recommendation($user);   
+        $campuses = Campus::all();    
+        $criterias = Criteria::all();     
+        $utbk_scores = UtbkScore::where('user_id', $user->id)->get();        
+        return view('user.home', ['recommendations' => $recommendations, 'utbk_scores' => $utbk_scores, 'criterias' => $criterias]);
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
-    {
-        $utbk_score = UtbkScore::findOrFail(Auth::user()->id);        
-        return view('home', ['utbk_score' => $utbk_score]);
+    public function indexDeveloper()
+    {            
+        return view('developer.home');
     }
 }

@@ -21,12 +21,13 @@
                 @if(isset($recommendation))            
                 <tr>     
                     <td>{{ $no }}</td>       
-                    <td>{{ $recommendation->campus->name }}</td>                    
-                    <td>{{ $recommendation->ranking }}</td>
-                    <td>{{ $recommendation->ranking }}</td>
-                    <td>{{ $recommendation->campus->capacity }}</td>
+                    <td>{{ $recommendation->name }}</td>                    
+                    <td>{{ $recommendation->option1_ranking }}</td>
+                    <td>{{ $recommendation->option2_ranking }}</td>
+                    <td>{{ $recommendation->capacity }}</td>
                     <td><a href="#">Edit</a></td>                
                 </tr>
+                @php $no++ @endphp
                 @endif
             @endforeach                   
             </tbody>
@@ -48,12 +49,12 @@
             <tbody>
             @php $no = 1 @endphp
             @foreach($criterias as $criteria)    
-                @foreach($recommendations as $recommendation)                                    
+                @foreach($utbk_scores as $utbk_score)                                    
                 <tr>     
                     <td>{{ $no }}</td>       
                     <td>{{ $criteria->name }}</td>
                     @php $name = Str::lower($criteria->name); $no++ @endphp
-                    <td>{{ $recommendation->utbk_score->$name }}</td>
+                    <td>{{ $utbk_score->$name }}</td>
                     <td><a href="#">Edit</a></td>                
                 </tr>                
                 @endforeach
