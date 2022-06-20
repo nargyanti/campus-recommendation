@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\UtbkScore;
+use DB;
+use Carbon\Carbon;
 
 class UtbkScoreSeeder extends Seeder
 {
@@ -14,31 +16,37 @@ class UtbkScoreSeeder extends Seeder
      */
     public function run()
     {
-        // UtbkScore::truncate();
-  
-        // $csvFile = fopen(base_path("database/data/utbk_score.csv"), "r");
-  
-        // $firstline = true;
-        // while (($data = fgetcsv($csvFile, 2000, ",")) !== FALSE) {
-        //     if (!$firstline) {
-        //         UtbkScore::create([
-        //             'user_id',
-        // 'campus_role_id',
-        // 'biologi',
-        // 'fisika',        
-        // 'kimia',
-        // 'kmb',
-        // 'kpu',
-        // 'kua',
-        // 'math',
-        // 'ppu',
-        //             "user_id" => $data['0'],
-        //             "campus_role_id" => $data['1']
-        //         ]);    
-        //     }
-        //     $firstline = false;
-        // }
-   
-        // fclose($csvFile);
+        $utbk_scores =
+        [
+            [
+                'id' => 1,
+                'user_id' => 1,
+                'biologi' => 435,
+                'fisika' => 523,
+                'kimia' => 732,
+                'kmb' => 231,
+                'kpu' => 674,
+                'kua' => 985,
+                'matematika' => 642,
+                'ppu' => 534,                
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 2,
+                'user_id' => 2,
+                'biologi' => 452,
+                'fisika' => 643,
+                'kimia' => 533,
+                'kmb' => 753,
+                'kpu' => 453,
+                'kua' => 765,
+                'matematika' => 534,
+                'ppu' => 521,                
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ],
+        ];
+        DB::table('utbk_scores')->insert($utbk_scores);
     }
 }
