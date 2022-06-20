@@ -22,6 +22,35 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('/campus', [CampusController::class, 'index'])->name('campus.index');
-Route::resource('/utbk', UtbkScoreController::class);
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', function () {
+        $role = Auth::user()->role;
+        if ($role == "developer") {
+            return redirect()->route('developer.home');
+        } else if ($role == "user") {
+            return redirect()->route('user.home');
+        }
+    })->name('index');
+
+    Route::get('home', function () {
+        $role = Auth::user()->role;
+        if ($role == "developer") {
+            return redirect()->route('developer.home');
+        } else if ($role == "user") {
+            return redirect()->route('user.home');
+        }
+    })->name('home');
+    
+    Route::group(['middleware' => 'role:developer', 'prefix' => 'developer'], function () {
+        Route::get('/home', [HomeController::class, 'indexDeveloper'])->name('developer.home');
+    });
+    
+    Route::group(['middleware' => 'role:user', 'prefix' => 'user'], function () {
+        Route::get('/home', [HomeController::class, 'indexUser'])->name('user.home');
+        Route::get('/campus', [CampusController::class, 'index'])->name('campus.index');
+    });
+});
+
+
+
+// Route::resource('/utbk', UtbkScoreController::class);
