@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Recommendation;
 
 class Campus extends Model
 {
@@ -15,8 +16,8 @@ class Campus extends Model
         'capacity',        
     ];
 
-    public function campus_role() 
+    public function recommendation() 
     {
-        return $this->hasMany(CampusRole::class);
+        return $this->hasMany(Recommendation::class);
     }    
 }
