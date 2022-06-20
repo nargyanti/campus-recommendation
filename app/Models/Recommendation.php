@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\CampusRole;
+use App\Models\UtbkScore;
+use App\Models\Campus;
 
 class Recommendation extends Model
 {
@@ -12,13 +13,20 @@ class Recommendation extends Model
 
     protected $table = 'recommendations';    
     protected $fillable = [        
-        'campus_role_id',        
+        'utbk_score_id',
+        'campus_id',    
+        'option',
         'score',
         'ranking',        
     ];
 
-    public function campus_role() 
+    public function utbk_score() 
     {        
-        return $this->belongsTo(CampusRole::class, 'campus_role_id', 'id');
+        return $this->belongsTo(UtbkScore::class, 'utbk_score_id', 'id');
+    }
+
+    public function campus() 
+    {        
+        return $this->belongsTo(Campus::class, 'campus_id', 'id');
     }
 }
