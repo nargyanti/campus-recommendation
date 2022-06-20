@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use DB;
+use Carbon\Carbon;
 
 class CampusSeeder extends Seeder
 {
@@ -18,82 +19,41 @@ class CampusSeeder extends Seeder
         [
             [
                 'name' => 'Universitas Brawijaya',
-                'capacity' => 96
+                'capacity' => 96,
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
                 'name' => 'Universitas Negeri Malang',
-                'capacity' => 45
+                'capacity' => 45,
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
                 'name' => 'Universitas Islam Negeri Malang',
-                'capacity' => 90
+                'capacity' => 90,
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
                 'name' => 'Universitas Negeri Surabaya',
-                'capacity' => 54
+                'capacity' => 54,
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
                 'name' => 'Universitas Trunojoyo Madura',
-                'capacity' => 100
+                'capacity' => 100,
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
                 'name' => 'UPN "Veteran" Jawa Timur',
-                'capacity' => 100
+                'capacity' => 100,
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ]
         ];
-        DB::table('campuses')->insert($campuses);
-
-        $role =
-        [
-            [
-                'campus_id' => 1,
-                'pilihan' => 1
-            ],
-            [
-                'campus_id' => 1,
-                'pilihan' => 2
-            ],
-            [
-                'campus_id' => 2,
-                'pilihan' => 1
-            ],
-            [
-                'campus_id' => 2,
-                'pilihan' => 2
-            ],
-            [
-                'campus_id' => 3,
-                'pilihan' => 1
-            ],
-            [
-                'campus_id' => 3,
-                'pilihan' => 2
-            ],
-            [
-                'campus_id' => 4,
-                'pilihan' => 1
-            ],
-            [
-                'campus_id' => 4,
-                'pilihan' => 2
-            ],
-            [
-                'campus_id' => 5,
-                'pilihan' => 1
-            ],
-            [
-                'campus_id' => 5,
-                'pilihan' => 2
-            ],
-            [
-                'campus_id' => 6,
-                'pilihan' => 1
-            ],
-            [
-                'campus_id' => 6,
-                'pilihan' => 2
-            ]
-        ];
-        DB::table('campus_roles')->insert($role);
+        DB::table('campuses')->insert($campuses);       
     }
 }

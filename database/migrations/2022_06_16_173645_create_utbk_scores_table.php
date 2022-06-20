@@ -15,10 +15,7 @@ class CreateUtbkScoresTable extends Migration
     {
         Schema::create('utbk_scores', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->unsignedBigInteger('campus_role_id');
-            $table->foreign('campus_role_id')->references('id')->on('campus_roles')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id');            
             $table->integer('biologi');
             $table->integer('fisika');
             $table->integer('kimia');
