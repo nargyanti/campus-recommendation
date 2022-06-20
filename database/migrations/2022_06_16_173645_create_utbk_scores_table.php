@@ -22,7 +22,7 @@ class CreateUtbkScoresTable extends Migration
             $table->integer('kmb');
             $table->integer('kpu');
             $table->integer('kua');
-            $table->integer('mat');
+            $table->integer('matematika');
             $table->integer('ppu');            
             $table->timestamps();
         });
