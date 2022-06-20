@@ -19,16 +19,29 @@ class UserSeeder extends Seeder
         $users =
         [
             [
+                'id' => 1,
                 'name' => 'Aisya Chalvina',
                 'email' => 'aisya@gmail.com',
                 'password' => Hash::make('12345678'),
+                'role' => 'user',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
+                'id' => 2,
                 'name' => 'Nabilah Argyanti',
                 'email' => 'nargyanti@gmail.com',
                 'password' => Hash::make('12345678'),
+                'role' => 'user',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 99999999999,
+                'name' => 'Developer',
+                'email' => 'dev@gmail.com',
+                'password' => Hash::make('12345678'),
+                'role' => 'developer',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
