@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CampusController;
 use App\Http\Controllers\UtbkScoreController;
+use App\Http\Controllers\RecommendationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +49,8 @@ Route::middleware(['auth'])->group(function () {
     Route::group(['middleware' => 'role:user', 'prefix' => 'user'], function () {
         Route::get('/home', [HomeController::class, 'indexUser'])->name('user.home');
         Route::get('/campus', [CampusController::class, 'index'])->name('campus.index');
+        Route::resource('utbk_score', UtbkScoreController::class);
+        Route::get('/calculate_ranking', [RecommendationController::class, 'calculate_ranking'])->name('recommendation.calculate_ranking');
     });
 });
 

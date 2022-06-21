@@ -24,16 +24,17 @@ class Recommendation extends Model
     public static function get_campus_recommendation($user) {
         $recommendations = DB::table('recommendations')
             ->select('utbk_scores.user_id', 'recommendations.campus_id', 'campuses.name', 'campuses.capacity', 
-                DB::raw('(SELECT re.ranking FROM recommendations re WHERE re.option = 1 AND recommendations.campus_id = re.campus_id) as option1_ranking'), 
-                DB::raw('(SELECT re.ranking FROM recommendations re WHERE re.option = 2 AND recommendations.campus_id = re.campus_id) as option2_ranking'), )
+                DB::raw('(SELECT re.ranking FROM recommendations re INNER JOIN utbk_scores ut ON ut.id = re.utbk_score_id WHERE re.option = 1 AND recommendations.campus_id = re.campus_id AND utbk_scores.user_id = ut.user_id) as option1_ranking'), 
+                DB::raw('(SELECT re.ranking FROM recommendations re INNER JOIN utbk_scores ut ON ut.id = re.utbk_score_id WHERE re.option = 2 AND recommendations.campus_id = re.campus_id AND utbk_scores.user_id = ut.user_id) as option2_ranking'), )
             ->join('campuses', 'recommendations.campus_id', '=', 'campuses.id')
             ->join('utbk_scores', 'utbk_scores.id', '=', 'recommendations.utbk_score_id')            
             ->where('utbk_scores.user_id', '=', $user->id)
             ->groupBy('recommendations.campus_id')
             ->get();     
         return $recommendations;
-    }
+    }    
 
+    // Relations
     public function utbk_score() {        
         return $this->belongsTo(UtbkScore::class, 'utbk_score_id', 'id');
     }

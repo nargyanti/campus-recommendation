@@ -15,4 +15,14 @@ class Criteria extends Model
         'pairwise_score',
         'weight',        
     ];
+
+    public static function get_criteria_name() {
+        $result = [];
+        $criterias = Criteria::all();        
+        foreach($criterias as $criteria) {     
+            array_push($result, $criteria->name);
+        }
+        return $result;
+    }
+
 }
