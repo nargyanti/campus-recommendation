@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -74,4 +74,55 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection --}}
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="{{ asset("css/style.css")}}">
+      <title>Score</title>
+    </head>
+    <body style="background: linear-gradient(120deg, #ffff, #FDE047);">
+        <div class="container">
+            <nav>
+              <div class="nav-brand">
+                <img src="assets/icon/Score..svg" alt="">
+              </div>
+              <div class="nav-links">
+                <a href="#" class="link-sm">About</a>
+                <button hrfef="#" class="btn-primary">Lets Start</button>
+              </div>
+            </nav>
+
+            <!--register card-->
+            <div class="center">
+                <h1>Register</h1>
+                <form method="post">
+                  <div class="txt_field">
+                    <input type="text" required>
+                    <span></span>
+                    <label>Username</label>
+                  </div>
+                  <div class="txt_field">
+                    <input type="email" required>
+                    <span></span>
+                    <label>E-mail</label>
+                  </div>
+                  <div class="txt_field">
+                    <input type="password" required>
+                    <span></span>
+                    <label>Password</label>
+                  </div>
+                  <div class="txt_field">
+                    <input type="password" required>
+                    <span></span>
+                    <label>Confirm Password</label>
+                  </div>
+                  <input type="submit" value="Register">
+                  <div class="signup_link"><a href="#"> </a>
+                  </div>
+                </form>
+              </div>
+    </body>
+</html>
