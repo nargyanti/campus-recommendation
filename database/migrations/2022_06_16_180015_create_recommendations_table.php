@@ -19,7 +19,7 @@ class CreateRecommendationsTable extends Migration
             $table->foreign('utbk_score_id')->references('id')->on('utbk_scores')->onDelete('cascade');
             $table->unsignedBigInteger('campus_id');
             $table->foreign('campus_id')->references('id')->on('campuses')->onDelete('cascade');
-            $table->enum('option', [1, 2]);
+            $table->integer('option');
             $table->double('score');            
             $table->integer('ranking');  
             $table->timestamps();

@@ -27,4 +27,8 @@ class HomeController extends Controller
         $criterias = Criteria::all();
         return view('developer.home', ['criterias' => $criterias]);
     }
+
+    public function landing_page() {
+        return view('welcome');
+    }
 }

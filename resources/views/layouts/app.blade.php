@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    
+    <link rel="stylesheet" href="{{ asset("css/style.css")}}">    
     <script src="https://kit.fontawesome.com/e5d58c1a7c.js" crossorigin="anonymous"></script>
 </head>
 <body>

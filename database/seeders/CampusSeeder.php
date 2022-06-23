@@ -19,39 +19,27 @@ class CampusSeeder extends Seeder
         [
             [
                 'name' => 'Universitas Brawijaya',
-                'capacity' => 96,
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+                'capacity' => 96,                
             ],
             [
                 'name' => 'Universitas Negeri Malang',
-                'capacity' => 45,
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+                'capacity' => 45,                
             ],
             [
                 'name' => 'Universitas Islam Negeri Malang',
-                'capacity' => 90,
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+                'capacity' => 90,                
             ],
             [
                 'name' => 'Universitas Negeri Surabaya',
-                'capacity' => 54,
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+                'capacity' => 54,                
             ],
             [
                 'name' => 'Universitas Trunojoyo Madura',
-                'capacity' => 100,
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+                'capacity' => 100,                
             ],
             [
                 'name' => 'UPN "Veteran" Jawa Timur',
-                'capacity' => 100,
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+                'capacity' => 100,                
             ]
         ];
         DB::table('campuses')->insert($campuses);       

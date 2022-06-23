@@ -10,11 +10,11 @@ use App\Models\Campus;
 
 class RecommendationController extends Controller
 {
-    public function calculate_ranking() {
+    public static function calculate_ranking() {
         $campuses = Campus::all();
         foreach($campuses as $campus) {
-            $this->topsis($campus->id, 1);
-            $this->topsis($campus->id, 2);
+            RecommendationController::topsis($campus->id, 1);
+            RecommendationController::topsis($campus->id, 2);
         }                        
         return redirect()->route('user.home');
     }    

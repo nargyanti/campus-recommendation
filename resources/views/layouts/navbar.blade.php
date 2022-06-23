@@ -1,19 +1,21 @@
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <!-- Left Side Of Navbar -->
     <ul class="navbar-nav me-auto">
-        @if (Auth::check())
-            <li class="nav-item">            
-                @if(Auth::user()->role == 'developer')
-                    <a class="nav-link" href="{{ route('developer.home') }}">Home</a>
-                @else
-                    <a class="nav-link" href="{{ route('user.home') }}">Home</a>
-                @endif
-            </li>
+        @if (Auth::check())            
             @if (Auth::user()->role == 'developer')       
+            <li class="nav-item">                        
+                <a class="nav-link" href="{{ route('developer.home') }}">Home</a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('criteria.scoring') }}">Scoring</a>
             </li>    
             @else
+                <li class="nav-item">                        
+                    <a class="nav-link" href="{{ route('user.home') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('utbk_score.index') }}">Score</a>
+                </li>    
             @endif            
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('campus.index') }}">Campus</a>

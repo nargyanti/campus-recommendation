@@ -18,9 +18,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             CriteriaSeeder::class,
             RandomIndexSeeder::class,
-            // UtbkScoreSeeder::class,
-            // RecommendationSeeder::class,
-            
+            UtbkScoreSeeder::class,
+            RecommendationSeeder::class,            
         ]);
     }
 }

@@ -32,7 +32,7 @@ class UtbkScore extends Model
 
     public static function add_criteria($name, $desc) {        
         Schema::table('utbk_scores', function (Blueprint $table) use ($name){
-            $table->string($name);
+            $table->integer($name)->default(0);
         });
 
         $utbk_scores = DB::table('utbk_scores')->update([$name => 0]);
@@ -125,7 +125,7 @@ class UtbkScore extends Model
 
     public static function get_distance_score($data, $alternative_score) {
         $result = [];        
-        $criterias = Criteria::get_criteria_name();
+        $criterias = Criteria::get_criteria_name();        
 
         $point_plus = [];
         $point_min = [];
@@ -137,7 +137,7 @@ class UtbkScore extends Model
         }    
         
         foreach ($criterias as $criteria) {                                
-            foreach($data as $utbk_score_id => $utbk_score) {                 
+            foreach($data as $utbk_score_id => $utbk_score) {                                 
                 $result[$utbk_score_id]['D+'] = sqrt(array_sum($point_plus[$utbk_score_id]));
                 $result[$utbk_score_id]['D-'] = sqrt(array_sum($point_min[$utbk_score_id]));
             }   
@@ -147,7 +147,7 @@ class UtbkScore extends Model
     }
 
     public static function get_preference_score($data) {
-        $result = [];
+        $result = [];        
         foreach($data as $utbk_score_id => $distance_score) {
             $result[$utbk_score_id] = $distance_score['D-'] / ($distance_score['D+'] + $distance_score['D-']);            
         }   

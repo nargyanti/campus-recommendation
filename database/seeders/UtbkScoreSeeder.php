@@ -29,8 +29,6 @@ class UtbkScoreSeeder extends Seeder
                 'kua' => 985,
                 'matematika' => 642,
                 'ppu' => 534,                
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
                 'id' => 2,
@@ -43,8 +41,6 @@ class UtbkScoreSeeder extends Seeder
                 'kua' => 765,
                 'matematika' => 534,
                 'ppu' => 521,                
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
         ];
         DB::table('utbk_scores')->insert($utbk_scores);

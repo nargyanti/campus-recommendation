@@ -16,15 +16,14 @@ class CreateUtbkScoresTable extends Migration
         Schema::create('utbk_scores', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');            
-            $table->integer('biologi');
-            $table->integer('fisika');
-            $table->integer('kimia');
-            $table->integer('kmb');
-            $table->integer('kpu');
-            $table->integer('kua');
-            $table->integer('matematika');
-            $table->integer('ppu');            
-            $table->timestamps();
+            $table->integer('biologi')->default(0);
+            $table->integer('fisika')->default(0);
+            $table->integer('kimia')->default(0);
+            $table->integer('kmb')->default(0);
+            $table->integer('kpu')->default(0);
+            $table->integer('kua')->default(0);
+            $table->integer('matematika')->default(0);
+            $table->integer('ppu')->default(0);            
         });
     }
 
