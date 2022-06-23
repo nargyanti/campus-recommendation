@@ -18,22 +18,21 @@ use App\Http\Controllers\RecommendationController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('/', function () {
-        $role = Auth::user()->role;
-        if ($role == "developer") {
+Route::get('/', function () {    
+    if (Auth::user() != null) {
+        if (Auth::user()->role == "developer") {
             return redirect()->route('developer.home');
         } else if ($role == "user") {
             return redirect()->route('user.home');
-        }
-    })->name('index');
+        } 
+    } else {
+        return view('welcome');
+    }
+})->name('index');
 
+Route::middleware(['auth'])->group(function () {    
     Route::get('home', function () {
         $role = Auth::user()->role;
         if ($role == "developer") {
