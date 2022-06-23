@@ -7,15 +7,15 @@
         <table class="table text-center table-striped">
             <thead>
             <tr>
-                <th class="col">N</th>
+                <th class="col">Criteria</th>
                 @foreach ($random_index as $ri) 
-                    <th class="col">{{ $ri->score }}</th>                    
+                    <th class="col">{{ $ri->criteria_amount }}</th>                    
                 @endforeach                
             </tr>
             </thead>
             <tbody>                
                 <tr>
-                    <td>Score<td>
+                    <td>Score</td>
                     @foreach ($random_index as $ri) 
                         <td>{{ $ri->score }}</td>
                     @endforeach

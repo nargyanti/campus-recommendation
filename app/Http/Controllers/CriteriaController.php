@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Criteria;
 use App\Models\UtbkScore;
 use App\Models\PairwiseScore;
+use App\Models\RandomIndex;
 
 class CriteriaController extends Controller
 {
@@ -73,8 +74,9 @@ class CriteriaController extends Controller
 
     public function scoring() {
         $criterias = Criteria::all();
-        $pairwise_scores = PairwiseScore::all();            
-        return view('developer.criteria.scoring', ['criterias' => $criterias, 'pairwise_scores' => $pairwise_scores]);
+        $pairwise_scores = PairwiseScore::all();           
+        $random_index = RandomIndex::all(); 
+        return view('developer.criteria.scoring', ['criterias' => $criterias, 'pairwise_scores' => $pairwise_scores, 'random_index' => $random_index]);
     }
 
     public function calculate_criteria_weight(Request $request) {        
