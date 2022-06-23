@@ -9,9 +9,15 @@
                     <a class="nav-link" href="{{ route('user.home') }}">Home</a>
                 @endif
             </li>
+            @if (Auth::user()->role == 'developer')       
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('criteria.scoring') }}">Scoring</a>
+            </li>    
+            @else
+            @endif            
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('campus.index') }}">Campus</a>
-            </li>
+            </li>            
         @endif
     </ul>
 

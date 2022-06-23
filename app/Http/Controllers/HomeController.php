@@ -23,7 +23,8 @@ class HomeController extends Controller
     }
 
     public function indexDeveloper()
-    {            
-        return view('developer.home');
+    {
+        $criterias = Criteria::all();
+        return view('developer.home', ['criterias' => $criterias]);
     }
 }

@@ -8,6 +8,9 @@ use App\Models\User;
 use App\Models\Recommendation;
 use App\Models\Criteria;
 use Auth;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+use DB;
 
 class UtbkScore extends Model
 {
@@ -25,6 +28,27 @@ class UtbkScore extends Model
         'matematika',
         'ppu',
     ];
+    public $timestamps = false;
+
+    public static function add_criteria($name, $desc) {        
+        Schema::table('utbk_scores', function (Blueprint $table) use ($name){
+            $table->string($name);
+        });
+
+        $utbk_scores = DB::table('utbk_scores')->update([$name => 0]);
+    }
+
+    public static function update_criteria_name($name, $new_name) {
+        Schema::table('utbk_scores', function (Blueprint $table) use ($name, $new_name){
+            $table->renameColumn($name, $new_name);
+        });        
+    }
+
+    public static function drop_criteria($name) {
+        Schema::table('utbk_scores', function (Blueprint $table) use ($name) {
+            $table->dropColumn($name);
+        });        
+    }
 
     public static function append_utbk_scoring_to_array($campus_id, $option) {
         $alternatives = Recommendation::with('utbk_score')->where('campus_id', '=', $campus_id)->where('option', '=', $option)->get();
@@ -39,6 +63,15 @@ class UtbkScore extends Model
         return $result;  
     }
 
+
+    public static function get_all_score_each_subject($data, $criteria) {
+        $result = [];            
+        foreach($data as $utbk_score) {     
+            array_push($result, $utbk_score[$criteria]);
+        }
+        return $result;
+    }
+    
     public static function get_normalization_score($data) {
         $result = [];        
         $criterias = Criteria::get_criteria_name();
@@ -60,15 +93,7 @@ class UtbkScore extends Model
             }
         }        
         return $result;        
-    }
-
-    public static function get_all_score_each_subject($data, $criteria) {
-        $result = [];            
-        foreach($data as $utbk_score) {     
-            array_push($result, $utbk_score[$criteria]);
-        }
-        return $result;
-    }
+    }    
     
     public static function get_weighted_score($data) {
         $result = [];

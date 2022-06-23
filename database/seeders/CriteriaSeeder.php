@@ -18,60 +18,36 @@ class CriteriaSeeder extends Seeder
         $criterias =
         [
             [
-                'name' => 'Biologi',
-                'pairwise_score' => 0,
-                'weight' => 0,
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+                'name' => 'biologi',            
+                'weight' => 0,                
             ],
             [
-                'name' => 'Fisika',
-                'pairwise_score' => 0,
-                'weight' => 0,
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+                'name' => 'fisika',                
+                'weight' => 0,                
             ],
             [
-                'name' => 'Kimia',
-                'pairwise_score' => 0,
-                'weight' => 0,
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+                'name' => 'kimia',                
+                'weight' => 0,                
             ],
             [
-                'name' => 'KMB',
-                'pairwise_score' => 0,
-                'weight' => 0,
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+                'name' => 'kmb',                
+                'weight' => 0,                
             ],
             [
-                'name' => 'KPU',
-                'pairwise_score' => 0,
-                'weight' => 0,
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+                'name' => 'kpu',                
+                'weight' => 0,                
             ],
             [
-                'name' => 'KUA',
-                'pairwise_score' => 0,
-                'weight' => 0,
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+                'name' => 'kua',                
+                'weight' => 0,                
             ],
             [
-                'name' => 'Matematika',
-                'pairwise_score' => 0,
-                'weight' => 0,
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+                'name' => 'matematika',                
+                'weight' => 0,                
             ],
             [
-                'name' => 'PPU',
-                'pairwise_score' => 0,
-                'weight' => 0,
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+                'name' => 'ppu',                
+                'weight' => 0,                
             ],
         ];
 
