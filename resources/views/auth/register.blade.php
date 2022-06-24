@@ -1,14 +1,13 @@
-{{-- @extends('layouts.app')
+@extends('layouts.login')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
-
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <h1 class="text-center h1 fw-bold my-3">{{ __('Register') }}</h1>
+                    <form class="my-4" method="POST" action="{{ route('register') }}">
                         @csrf
 
                         <div class="row mb-3">
@@ -62,10 +61,13 @@
                         </div>
 
                         <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                            <div class="col-md-8 offset-md-4">
+                                <button type="submit" class="btn btn-primary" style="background-color: #FDE047; color: #1E293B">
                                     {{ __('Register') }}
-                                </button>
+                                </button>                                                                
+                                <a class="btn btn-link" href="{{ route('login') }}">
+                                    Login
+                                </a>                                
                             </div>
                         </div>
                     </form>
@@ -74,55 +76,4 @@
         </div>
     </div>
 </div>
-@endsection --}}
-<!DOCTYPE html>
-<html>
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="{{ asset("css/style.css")}}">
-      <title>Score</title>
-    </head>
-    <body style="background: linear-gradient(120deg, #ffff, #FDE047);">
-        <div class="container">
-            <nav>
-              <div class="nav-brand">
-                <img src="assets/icon/Score..svg" alt="">
-              </div>
-              <div class="nav-links">
-                <a href="#" class="link-sm">About</a>
-                <button hrfef="#" class="btn-primary">Lets Start</button>
-              </div>
-            </nav>
-
-            <!--register card-->
-            <div class="center">
-                <h1>Register</h1>
-                <form method="post">
-                  <div class="txt_field">
-                    <input type="text" required>
-                    <span></span>
-                    <label>Username</label>
-                  </div>
-                  <div class="txt_field">
-                    <input type="email" required>
-                    <span></span>
-                    <label>E-mail</label>
-                  </div>
-                  <div class="txt_field">
-                    <input type="password" required>
-                    <span></span>
-                    <label>Password</label>
-                  </div>
-                  <div class="txt_field">
-                    <input type="password" required>
-                    <span></span>
-                    <label>Confirm Password</label>
-                  </div>
-                  <input type="submit" value="Register">
-                  <div class="signup_link"><a href="#"> </a>
-                  </div>
-                </form>
-              </div>
-    </body>
-</html>
+@endsection

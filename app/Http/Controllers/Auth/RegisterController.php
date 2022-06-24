@@ -8,6 +8,9 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Models\UtbkScore;
+use App\Models\Campus;
+use App\Models\Recommendation;
 
 class RegisterController extends Controller
 {
@@ -64,10 +67,30 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'role' => 'user',
             'password' => Hash::make($data['password']),
         ]);
+
+        $utbk_score = UtbkScore::create([
+            'user_id' => $user->id,
+        ]);
+        
+        $campuses = Campus::all();
+        foreach ($campuses as $campus) {
+            for ($i = 1; $i < 3; $i++) {
+                Recommendation::create([                
+                    'utbk_score_id' => $utbk_score->id,
+                    'campus_id' => $campus->id,
+                    'option' => $i,
+                    'score' => 0,
+                    'ranking' => 0,
+            ]);
+            }                        
+        }
+
+        return $user;
     }
 }

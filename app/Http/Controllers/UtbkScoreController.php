@@ -68,7 +68,7 @@ class UtbkScoreController extends Controller
         $utbk_score = UtbkScore::where('id', $id)->update($request->except(['_token', '_method']));        
         RecommendationController::calculate_ranking();
                         
-        return redirect()->route('user.home')
+        return redirect()->route('utbk_score.index')
             ->with('success', 'Data berhasil ditambahkan');
     }
 

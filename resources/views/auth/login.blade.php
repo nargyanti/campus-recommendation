@@ -1,14 +1,13 @@
-@extends('layouts.app')
+@extends('layouts.login')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
+            <div class="card">                
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                    <h1 class="text-center h1 fw-bold my-3">{{ __('Login') }}</h1>
+                    <form method="POST" action="{{ route('login') }}" class="my-4">
                         @csrf
 
                         <div class="row mb-3">
@@ -53,15 +52,12 @@
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary" style="background-color: #FDE047; color: #1E293B">
                                     {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
+                                </button>                                                                
+                                <a class="btn btn-link" href="{{ route('register') }}">
+                                    Register
+                                </a>                                
                             </div>
                         </div>
                     </form>
@@ -71,45 +67,3 @@
     </div>
 </div>
 @endsection
-{{-- <!DOCTYPE html>
-<html>
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-      <title>Score</title>
-    </head>
-    <body style="background: linear-gradient(120deg, #ffff, #FDE047);">
-        <div class="container">
-            <nav>
-              <div class="nav-brand">
-                <img src="{{ asset('assets/icon/Score..svg') }}" alt="">
-              </div>
-              <div class="nav-links">
-                <a href="#" class="link-sm">About</a>
-                <button hrfef="#" class="btn-primary">Lets Start</button>
-              </div>
-            </nav>
-
-            <!--login card-->
-            <div class="center">
-                <h1>Login</h1>
-                <form method="post">
-                  <div class="txt_field">
-                    <input type="text" required>
-                    <span></span>
-                    <label>Username</label>
-                  </div>
-                  <div class="txt_field">
-                    <input type="password" required>
-                    <span></span>
-                    <label>Password</label>
-                  </div>
-                  <input type="submit" value="Login">
-                  <div class="signup_link">
-                    Doesn’t have an account ? <a href="#">Register</a>
-                  </div>
-                </form>
-              </div>
-    </body>
-</html> --}}

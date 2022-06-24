@@ -3,8 +3,9 @@
 @section('content')
 <div class="container">
     {{-- Campus Recommendation --}}
-    <div class="my-3">        
-        <a href="{{ route('criteria.create') }}"><button type="button" class="btn btn-primary">Add Criteria</button></a>
+    <div class="my-3 row">        
+        <h1 class="col-10">Criteria</h1>
+        <a class="col-2" href="{{ route('criteria.create') }}"><button type="button" class="btn btn-primary">Add Criteria</button></a>
     </div>  
     <div class="my-3">
         <table class="table text-center">
@@ -13,6 +14,7 @@
                 <th class="col">No</th>                        
                 <th class="col w-50">Name</th>                
                 <th class="col">Weight</th>            
+                <th class="col">Action</th>            
             </tr>
             </thead>
             <tbody>
@@ -23,12 +25,14 @@
                     <td class="text-capitalize">{{ $criteria->name }}</td>                    
                     <td>{{ $criteria->weight }}</td>                    
                     <td>
-                        <a href="{{ route('criteria.edit', $criteria->id) }}">Edit</a>
-                        <form action="{{ route('criteria.destroy', $criteria->id) }}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-warning">Delete</button>
-                        </form>
+                        <div class="btn-group">
+                            <a href="{{ route('criteria.edit', $criteria->id) }}"><button class="btn btn-primary mx-2" style="font-size: 14px">Edit</button></a>
+                            <form action="{{ route('criteria.destroy', $criteria->id) }}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-primary" style="font-size: 14px">Delete</button>
+                            </form>
+                        </div>                        
                     </td>                
                 </tr>
                 @php $no++ @endphp                

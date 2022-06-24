@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="{{ asset("css/style.css")}}">    
     <script src="https://kit.fontawesome.com/e5d58c1a7c.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body style="background: linear-gradient(120deg, #ffff, #FDE047)">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark shadow-sm score-dark">
             <div class="container">

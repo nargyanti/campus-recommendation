@@ -18,7 +18,7 @@ nav{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 92px;
+  height: 70px;
 }
 a.link-sm{
   color: #A9A9A9;
@@ -28,11 +28,11 @@ a.link-sm{
 }
 button.btn-primary{
   background-color: #1E293B;
-  padding: 14px 35px;
+  padding: 10px 35px;
   border: none;
   border-radius: 360px;
   color: #fff;
-  font-size: 20px;
+  font-size: 14px;
   font-weight: 400;
 }
 .nav-links{
@@ -60,11 +60,10 @@ section.score{
   width: 70%;
 }
 h1.score-heading{
-  font-size: 64px;
+  font-size: 55px;
   color: #1E293B;
 }
-p.text-p{
-  margin: 25px 0;
+p.text-p{  
   font-size: 18px;
   color: #A9A9A9;
   line-height: 38px;
@@ -157,10 +156,9 @@ button.btn-secondary{
 }
 .footer{
   display: flex;
-  align-items: center;
-  margin-top: 10vh;
+  align-items: center;  
   background-color: #1E293B;
-  padding: 95px 140px;
+  padding: 0px 140px 90px 140px;
 }
 .footer-primary h3{
   color: #ffff;
@@ -174,4 +172,36 @@ button.btn-secondary{
   font-size: 18px;
   margin-bottom: 35px;
   line-height: 5px;
+}
+
+.score-primary {
+  background-color: #1E40AF;
+  color: white;
+}
+
+.score-primary:hover {
+  background-color: #1E40AF;
+  color: white;
+}
+
+.score-dark {
+  background-color: #1E293B;
+  color: white;
+}
+
+.score-dark:hover {
+  background-color: #1E293B;
+  color: white;
+}
+
+.score-outline-dark{
+  background-color: white;
+  border: 1px solid #1E293B;
+  color: #1E293B;
+}
+
+.score-outline-dark:hover {
+  background-color: white;
+  border: 1px solid #1E293B;
+  color: #1E293B;
 }

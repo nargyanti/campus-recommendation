@@ -107,8 +107,7 @@ class Criteria extends Model
 
         $random_index = RandomIndex::where('criteria_amount', '=', $lambda_length)->first();
         $consistency_index = ($lambda_max - $lambda_length) / ($lambda_length - 1);
-        $consistency_ratio = $consistency_index / $random_index->score;
-        dd($consistency_ratio);
+        $consistency_ratio = $consistency_index / $random_index->score;        
         return $consistency_ratio;
     }
 

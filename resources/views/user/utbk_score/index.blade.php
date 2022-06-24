@@ -2,14 +2,16 @@
 
 @section('content')
 <div class="container">    
-    <div class="my-3">
-        <a href="{{ route('recommendation.calculate_ranking') }}"><button class="btn btn-primary">Refresh Ranking</button></a>
-        <a href="{{ route('utbk_score.edit', Auth::user()->id) }}"><button class="btn btn-primary">Edit Score</button></a>
+    <div class="row">
+        <h1 class="col-9">UTBK Score</h1>
+        <div class="col-3">
+            <a  href="{{ route('recommendation.calculate_ranking') }}"><button class="btn btn-primary">Refresh</button></a>
+            <a href="{{ route('utbk_score.edit', Auth::user()->id) }}"><button class="btn btn-primary">Edit Score</button></a>
+        </div>
     </div>
     {{-- UTBK Score --}}
-    <div class="my-3">
-        <h1>UTBK Score</h1>    
-        <table class="table text-center">
+    <div class="my-3">          
+        <table class="table text-center table-striped">
             <thead>
             <tr>
                 <th class="col">No</th>                        

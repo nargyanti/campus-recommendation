@@ -2,14 +2,15 @@
 
 @section('content')
 <div class="container">
-    {{-- Random Index --}}
+    @include('layouts.alert')
+    {{-- Random Index --}}    
     <div class="my-3">        
         <table class="table text-center table-striped">
             <thead>
             <tr>
                 <th class="col">Criteria</th>
                 @foreach ($random_index as $ri) 
-                    <th class="col">{{ $ri->criteria_amount }}</th>                    
+                    <th class="col">{{ $ri->criteria_amount }}</th>                                        
                 @endforeach                
             </tr>
             </thead>
@@ -71,7 +72,7 @@
                 @endforeach
                 </tbody>
             </table>                               
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary btn-primary">Submit</button>
         </form>        
     </div>
 </div>

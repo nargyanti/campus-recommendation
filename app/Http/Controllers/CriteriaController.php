@@ -75,7 +75,7 @@ class CriteriaController extends Controller
     public function scoring() {
         $criterias = Criteria::all();
         $pairwise_scores = PairwiseScore::all();           
-        $random_index = RandomIndex::all(); 
+        $random_index = RandomIndex::all();         
         return view('developer.criteria.scoring', ['criterias' => $criterias, 'pairwise_scores' => $pairwise_scores, 'random_index' => $random_index]);
     }
 
@@ -83,6 +83,7 @@ class CriteriaController extends Controller
         $criterias = Criteria::all();      
         $pairwise_comparison_scores = Criteria::pairwise_comparison($request);
         $weight = Criteria::normalization($pairwise_comparison_scores);
+        $consistency_score = Criteria::consistency($pairwise_comparison_scores, $weight);
         
         foreach($weight as $id => $value) {
             Criteria::where('id', '=', $id)                
@@ -92,7 +93,7 @@ class CriteriaController extends Controller
         }        
 
         return redirect()->route('criteria.scoring')
-            ->with('success', 'Data berhasil ditambahkan');
+            ->with('message', $consistency_score);
     }    
 
     public function get_consistency_ratio($pairwise_scores, $weight) {
